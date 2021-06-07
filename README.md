@@ -1,23 +1,55 @@
+<h1 id="nuxt-taxonomies" align="center">Nuxt Taxonomies</h1>
+
+<p align="center"><a href="https://www.patreon.com/thombruce"><img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron"></a></p>
+
+<p align="center"><a href="https://github.com/thombruce/nuxt-taxonomies/issues"><img src="https://img.shields.io/github/issues-raw/thombruce/nuxt-taxonomies?logo=github" alt="GitHub issues"></a></p>
+
+<p align="center"><a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a></p>
+
+<p align="center">Plugin adding support for automatic handling of taxonomies with Nuxt Content.</p>
+
 ## Installation
 
-Add TNT to your project:
-
 ```sh
-yarn add https://github.com/thombruce/tnt --dev
+# With Yarn
+yarn add @thombruce/nuxt-taxonomies
+# With npm
+npm install @thombruce/nuxt-taxonomies --save
 ```
 
-Add TNT to buildModules in `nuxt.config.js`:
+Add `@thombruce/nuxt-taxonomies` to `buildModules` in `nuxt.config.js`:
 
 ```js
-buildModules: [
-  '@thombruce/tnt'
-]
+  buildModules: [
+    // ...
+    "@thombruce/nuxt-taxonomies",
+    // ...
+  ],
 ```
 
-## Overwrite Default Styles
+## Usage
 
-```css
-@import "@thombruce/tnt";
+```vue
+<script>
+export default {
+  async asyncData () {
+    // To list all tags found in /content/blog files
+    const tags = $taxonomies('tags', 'blog').all() // [{ slug: 'my-tag', title: 'My Tag' }, { slug: 'my-other-tag', title: 'My Other Tag' }]
 
-/* Declare your styles or local imports here. */
+    return { tags }
+  }
+}
+```
+
+```vue
+<script>
+export default {
+  async asyncData () {
+    // To retrieve a specific term
+    const term = $taxonomies('tags', 'blog').find('my-tag') // { slug: 'my-tag', title: 'My Tag' }
+
+    return { term }
+  }
+}
+</script>
 ```
