@@ -1,0 +1,16 @@
+{
+  "name": "@thombruce/nuxt-taxonomies",
+  "version": "0.1.0",
+  "description": "Adds support for automatic handling of taxonomies to Nuxt Content.",
+  "main": "index.js",
+  "repository": "https://github.com/thombruce/nuxt-taxonomies",
+  "author": "Thom Bruce <thom@thombruce.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "peerDependencies": {
+    "@nuxt/content": "^1.14.0",
+    "nuxt": "^2.15.6"
+  }
+}
