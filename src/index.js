@@ -8,3 +8,7 @@ export default async function () {
     src: resolve(__dirname, 'plugins/taxonomies.js')
   })
 }
+
+// Used in conjunction with addModule(opts, requireOnce)
+// to prevent a module being required more than once.
+module.exports.meta = require('../package.json')
