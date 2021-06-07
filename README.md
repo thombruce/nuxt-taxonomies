@@ -32,7 +32,7 @@ Add `@thombruce/nuxt-taxonomies` to `buildModules` in `nuxt.config.js`:
 ```vue
 <script>
 export default {
-  async asyncData () {
+  async asyncData ({ $taxonomies }) {
     // To list all tags found in /content/blog files
     const tags = $taxonomies('tags', 'blog').all() // [{ slug: 'my-tag', title: 'My Tag' }, { slug: 'my-other-tag', title: 'My Other Tag' }]
 
@@ -44,7 +44,7 @@ export default {
 ```vue
 <script>
 export default {
-  async asyncData () {
+  async asyncData ({ $taxonomies }) {
     // To retrieve a specific term
     const term = $taxonomies('tags', 'blog').find('my-tag') // { slug: 'my-tag', title: 'My Tag' }
 
