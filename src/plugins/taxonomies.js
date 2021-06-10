@@ -26,7 +26,9 @@ class Taxonomy {
   }
 
   async getTerms () {
-    const articles = await this.$content(this.property, this.options).fetch()
+    const articles = await this.$content(this.property, this.options)
+      .only([this.taxonomy])
+      .fetch()
     let terms = articles.map(article => article[this.taxonomy])
 
     this.terms = flow(
