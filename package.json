@@ -1,6 +1,6 @@
 {
   "name": "@thombruce/nuxt-taxonomies",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Adds support for automatic handling of taxonomies to Nuxt Content.",
   "main": "src/index.js",
   "repository": "https://github.com/thombruce/nuxt-taxonomies",
