@@ -35,7 +35,14 @@ class Taxonomy {
       flatten,
       compact,
       uniq,
-      map(term => { return { slug: kebabCase(term), title: term } })
+      map(term => {
+        const sanitizedTerm = kebabCase(term)
+        return {
+          slug: sanitizedTerm,
+          title: term,
+          path: `${(this.options.nestedTaxonomy && this.property != '') ? '/' + this.property : ''}/${this.taxonomy}/${sanitizedTerm}`
+        }
+      })
     )(terms)
 
     return this.terms
