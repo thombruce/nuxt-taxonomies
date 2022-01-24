@@ -4,7 +4,7 @@ import { resolve } from 'path'
 export default async function () {
   const { nuxt } = this
 
-  this.addPlugin({
+  nuxt.options.plugins.push({
     src: resolve(__dirname, 'plugins/taxonomies.js')
   })
 }
